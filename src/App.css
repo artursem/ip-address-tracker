@@ -1,6 +1,6 @@
 .header {
 	width: 100vw;
-	height: 22rem;
+	height: 20rem;
 	background: url('../public/pattern-bg.png');
 	background-size: cover;
 	color: white;
@@ -41,12 +41,13 @@
 .infobox {
 	background-color: white;
 	width: 19rem;
-	height: 12rem;
+	min-height: 12rem;
 	margin: 2rem 0 -15rem 0;
 	padding: 1rem;
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
+	z-index: 2;
 }
 
 .infobox__section {
@@ -69,4 +70,10 @@
 	margin: 0.3rem;
 	color: var(--black);
 	font-weight: 500;
+}
+
+.leaflet-container {
+	z-index: 0;
+	width: 100vw;
+	height: calc(100vh - 20rem);
 }
