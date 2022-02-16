@@ -1,16 +1,18 @@
-import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import IconMarker from './IconMarker';
+
 const MapSection = () => {
 	return (
 		<section className='leaflet-container'>
-			<MapContainer center={[51.505, -0.09]} zoom={13}>
+			<MapContainer center={[51.11, 17.036]} zoom={12}>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				/>
-				<Marker position={[51.505, -0.09]}>
+				<Marker position={[51.11, 17.036]}>
 					<Popup>
-						A pretty CSS3 popup. <br /> Easily customizable.
+						CUSTOMIZE THIS POPUP <br /> A pretty CSS3 popup. <br /> Easily
+						customizable.
 					</Popup>
 				</Marker>
 			</MapContainer>

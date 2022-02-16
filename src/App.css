@@ -36,6 +36,16 @@
 	background-color: var(--black);
 	transform: translateY(1px);
 	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+	transition: transform 0.2s ease-in-out;
+}
+
+.header__button:hover {
+	background-color: var(--gray);
+}
+
+.header__button:active svg {
+	transform: translateY(1px);
 }
 
 .infobox {
