@@ -1,0 +1,6 @@
+.leafletContainer {
+	z-index: 0;
+	width: 100vw;
+	/* height: calc(100vh - 20rem); */
+	height: 400px;
+}

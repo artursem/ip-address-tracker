@@ -1,0 +1,19 @@
+button {
+	width: 3rem;
+	height: 3rem;
+	border: none;
+	border-radius: 0 10px 10px 0;
+	background-color: var(--black);
+	transform: translateY(1px);
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+	transition: transform 0.2s ease-in-out;
+}
+
+.button:hover {
+	background-color: var(--gray);
+}
+
+.button:active svg {
+	transform: translateY(1px);
+}

@@ -1,0 +1,10 @@
+.input {
+	height: 3rem;
+	width: 16rem;
+	border-radius: 10px 0 0 10px;
+	border: none;
+	color: var(--black);
+	padding: 0.5rem 1rem;
+	font-family: inherit;
+	font-size: 0.9rem;
+}

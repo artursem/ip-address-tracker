@@ -1,5 +1,5 @@
-import React from 'react';
 import Button from './Button';
+import styles from './styles/IPForm.module.css';
 
 const IPForm = () => {
 	return (
@@ -7,7 +7,7 @@ const IPForm = () => {
 			<input
 				type='text'
 				id='ipInput'
-				className='header__input'
+				className={styles.input}
 				placeholder='Search for and IP address or domain'
 			/>
 			<Button />

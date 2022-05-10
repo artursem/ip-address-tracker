@@ -1,9 +1,9 @@
-import React from 'react';
 import IconArrow from './IconArrow';
+import styles from './styles/Button.module.css';
 
 const Button = () => {
 	return (
-		<button type='submit' className='header__button'>
+		<button type='submit' className={styles.button}>
 			<IconArrow />
 		</button>
 	);
