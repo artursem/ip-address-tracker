@@ -1,7 +1,13 @@
+import { FC } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import styles from './styles/MapSection.module.css';
 
-const MapSection = () => {
+interface MapSectionProps {
+	coords?: [number, number];
+	popup?: string;
+}
+
+const MapSection: FC<MapSectionProps> = (props) => {
 	return (
 		<section className={styles.leafletContainer}>
 			<MapContainer center={[51.11, 17.036]} zoom={12}>
@@ -11,7 +17,7 @@ const MapSection = () => {
 				/>
 				<Marker position={[51.11, 17.036]}>
 					<Popup>
-						CUSTOMIZE THIS POPUP <br /> A pretty CSS3 popup. <br /> Easily customizable.
+						TEXT : CUSTOMIZE THIS POPUP <br /> A pretty CSS3 popup. <br /> Easily customizable.
 					</Popup>
 				</Marker>
 			</MapContainer>
