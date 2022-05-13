@@ -8,10 +8,10 @@
 	display: flex;
 	flex-direction: column;
 	z-index: 2;
+	box-shadow: 0 0px 10px 3px rgba(0, 0, 0, 0.3);
 }
 
 .section {
-	/* border: 1px solid pink; */
 	margin: 0.5rem;
 	display: flex;
 	flex-direction: column;

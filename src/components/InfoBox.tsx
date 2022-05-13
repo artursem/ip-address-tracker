@@ -1,6 +1,7 @@
 import styles from './styles/InfoBox.module.css';
 
 const InfoBox = () => {
+	console.log(process.env.REACT_APP_KEY);
 	return (
 		<div className={styles.infobox}>
 			<section className={styles.section}>

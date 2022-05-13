@@ -5,7 +5,7 @@ import styles from './styles/IPForm.module.css';
 const IPForm = () => {
 	const [inputValue, setInputValue] = useState<string>('');
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-		setInputValue(event.target.value);
+		setInputValue(event.currentTarget.value);
 	};
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
