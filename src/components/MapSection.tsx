@@ -9,14 +9,14 @@ interface MapSectionProps {
 const MapSection = ({ coords, popup }: MapSectionProps) => {
 	return (
 		<section className={styles.leafletContainer}>
-			<MapContainer center={[51.11, 17.036]} zoom={12}>
+			<MapContainer center={[51.11, 17.036]} zoom={13} scrollWheelZoom={true}>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				/>
 				<Marker position={[51.11, 17.036]}>
 					<Popup>
-						TEXT : CUSTOMIZE THIS POPUP <br /> A pretty CSS3 popup. <br /> Easily customizable.
+						A pretty CSS3 popup. <br /> Easily customizable.
 					</Popup>
 				</Marker>
 			</MapContainer>

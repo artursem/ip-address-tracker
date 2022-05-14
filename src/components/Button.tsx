@@ -1,4 +1,4 @@
-import IconArrow from './IconArrow';
+import IconArrow from './icons/IconArrow';
 import styles from './styles/Button.module.css';
 
 const Button = () => {

@@ -1,15 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import searchSlice from './search-slice';
 
-export function makeStore() {
-	return configureStore({
-		reducer: {
-			search: searchSlice.reducer,
-		},
-	});
-}
-
-const store = makeStore();
+const store = configureStore({
+	reducer: {
+		search: searchSlice.reducer,
+	},
+});
 
 export type AppState = ReturnType<typeof store.getState>;
 export type RootState = ReturnType<typeof store.getState>;

@@ -6,6 +6,7 @@ import ApiResponse from '../types/apiResponse';
 
 interface SearchState {
 	searchResult: ApiResponse;
+	coords: [number, number];
 	status: Status;
 }
 
@@ -16,6 +17,7 @@ const initialState: SearchState = {
 		timezone: '',
 		isp: '',
 	},
+	coords: [0, 0],
 	status: Status.idle,
 };
 
@@ -27,7 +29,11 @@ export const fetchDataByIp = createAsyncThunk('search/byIp', async (ipAddress: s
 export const searchSlice = createSlice({
 	name: 'search',
 	initialState,
-	reducers: {},
+	reducers: {
+		setCoords: (state, action) => {
+			state.coords = action.payload;
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchDataByIp.pending, (state) => {
