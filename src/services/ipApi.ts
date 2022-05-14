@@ -1,4 +1,4 @@
-import ApiRespone from '../types/apiResponse';
+import ApiRespone, { Location } from '../types/apiResponse';
 // https://geo.ipify.org/docs
 // https://geo.ipify.org/api/v2/country?apiKey=at_rRtKoldKVlxAgV6im9T1atQtIAmM1&ipAddress=8.8.8.8
 
@@ -12,13 +12,27 @@ export const fetchByIp = async (ipAddress: string) => {
 			throw new Error('Error fetching by ip');
 		}
 		const data = await response.json();
-		console.log(data);
 		const { ip, location, isp } = data;
+		const displayLocation = (loc: Location) => {
+			const display = [];
+			if (loc.city !== undefined) {
+				display.push(loc.city);
+			}
+			if (loc.region !== undefined) {
+				display.push(loc.region);
+			}
+			if (loc.country !== undefined) {
+				display.push(loc.country);
+			}
+			return display.join(', ');
+		};
 		const info: ApiRespone = {
 			ipAddress: ip,
-			location: `${location.city}, ${location.region}, ${location.country}`,
+			location: displayLocation(location),
 			timezone: location.timezone,
 			isp,
+			lat: location.lat,
+			lng: location.lng,
 		};
 		console.log(info);
 		return info;

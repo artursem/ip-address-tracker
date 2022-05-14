@@ -6,7 +6,6 @@ import ApiResponse from '../types/apiResponse';
 
 interface SearchState {
 	searchResult: ApiResponse;
-	coords: [number, number];
 	status: Status;
 }
 
@@ -16,8 +15,9 @@ const initialState: SearchState = {
 		location: '',
 		timezone: '',
 		isp: '',
+		lat: NaN,
+		lng: NaN,
 	},
-	coords: [0, 0],
 	status: Status.idle,
 };
 
@@ -30,9 +30,9 @@ export const searchSlice = createSlice({
 	name: 'search',
 	initialState,
 	reducers: {
-		setCoords: (state, action) => {
-			state.coords = action.payload;
-		},
+		// setCoords: (state, action) => {
+		// 	state.coords = action.payload;
+		// },
 	},
 	extraReducers: (builder) => {
 		builder
@@ -46,5 +46,6 @@ export const searchSlice = createSlice({
 	},
 });
 
-export const selectSearchResult = (state: RootState) => state.search;
+export const selectSearchResult = (state: RootState) => state.search.searchResult;
+export const selectStatus = (state: RootState) => state.search.status;
 export default searchSlice;
