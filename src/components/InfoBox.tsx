@@ -27,9 +27,6 @@ const InfoBox = () => {
 			</section>
 		</>
 	);
-
-	if (status === Status.failed) {
-	}
 	return (
 		<div className={styles.infobox}>
 			{status === Status.idle && displayInfo}

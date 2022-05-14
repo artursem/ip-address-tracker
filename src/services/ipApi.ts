@@ -3,7 +3,7 @@ import ApiRespone, { Location } from '../types/apiResponse';
 // https://geo.ipify.org/api/v2/country?apiKey=at_rRtKoldKVlxAgV6im9T1atQtIAmM1&ipAddress=8.8.8.8
 
 const key = process.env.REACT_APP_KEY;
-export const url = `https://geo.ipify.org/api/v2/country?apiKey=${key}`;
+export const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}`;
 
 export const fetchByIp = async (ipAddress: string) => {
 	try {
@@ -12,6 +12,7 @@ export const fetchByIp = async (ipAddress: string) => {
 			throw new Error('Error fetching by ip');
 		}
 		const data = await response.json();
+		console.log(data);
 		const { ip, location, isp } = data;
 		const displayLocation = (loc: Location) => {
 			const display = [];
@@ -31,8 +32,8 @@ export const fetchByIp = async (ipAddress: string) => {
 			location: displayLocation(location),
 			timezone: location.timezone,
 			isp,
-			lat: location.lat,
-			lng: location.lng,
+			lng: data.location.lng,
+			lat: data.location.lat,
 		};
 		console.log(info);
 		return info;

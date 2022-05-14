@@ -17,3 +17,5 @@ export interface Location {
 	timezone: string;
 	geonameId: number;
 }
+
+export type Coords = [number, number];

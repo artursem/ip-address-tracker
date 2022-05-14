@@ -11,12 +11,12 @@ interface SearchState {
 
 const initialState: SearchState = {
 	searchResult: {
-		ipAddress: '',
-		location: '',
-		timezone: '',
-		isp: '',
-		lat: NaN,
-		lng: NaN,
+		ipAddress: '8.8.8.8',
+		isp: 'Google LLC',
+		lat: 37.38605,
+		lng: -122.08385,
+		location: 'Mountain View, California, US',
+		timezone: '-07:00',
 	},
 	status: Status.idle,
 };
