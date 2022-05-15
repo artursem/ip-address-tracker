@@ -13,7 +13,6 @@ const IPForm = () => {
 	};
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
-		// console.log(inputValue);
 		dispatch(fetchDataByIp(inputValue));
 	};
 	return (

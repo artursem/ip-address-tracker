@@ -1,7 +1,7 @@
 .infobox {
 	background-color: white;
 	width: 19rem;
-	height: 22rem;
+	/* min-height: 22rem; */
 	margin: 2rem 0 -15rem 0;
 	padding: 1rem;
 	border-radius: 10px;

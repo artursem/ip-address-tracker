@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, useMapEvent, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import { LatLng } from 'leaflet';
 import { Icon } from 'leaflet';
 import styles from './styles/MapSection.module.css';
