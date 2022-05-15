@@ -1,13 +1,21 @@
 import ApiRespone, { Location } from '../types/apiResponse';
-// https://geo.ipify.org/docs
-// https://geo.ipify.org/api/v2/country?apiKey=at_rRtKoldKVlxAgV6im9T1atQtIAmM1&ipAddress=8.8.8.8
-
+import { isIP } from 'is-ip';
 const key = process.env.REACT_APP_KEY;
 export const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}`;
 
-export const fetchByIp = async (ipAddress: string) => {
+// const isIpAddress = (str: string) => {
+// 	const isLengthOK = str.split('.').length === 4;
+// 	const isNumbers = str.split('.').every((part) => !isNaN(parseInt(part)));
+// 	console.log(isLengthOK);
+// 	console.log(isNumbers);
+// 	return isLengthOK && isNumbers;
+// };
+
+export const fetchByIp = async (query: string) => {
 	try {
-		const response = await fetch(`${url}&ipAddress=${ipAddress}`);
+		const searchBy = isIP(query) ? 'ipAddress' : 'domain';
+		console.log(searchBy);
+		const response = await fetch(`${url}&${searchBy}=${query}`);
 		if (!response.ok) {
 			throw new Error('Error fetching by ip');
 		}
@@ -41,3 +49,6 @@ export const fetchByIp = async (ipAddress: string) => {
 		return error.message;
 	}
 };
+
+// https://geo.ipify.org/docs
+// https://geo.ipify.org/api/v2/country?apiKey=at_rRtKoldKVlxAgV6im9T1atQtIAmM1&ipAddress=8.8.8.8
