@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import styles from './styles/MapSection.module.css';
 
 interface MapSectionProps {
@@ -7,7 +7,6 @@ interface MapSectionProps {
 }
 
 const MapSection = ({ coords, popup }: MapSectionProps) => {
-	console.log('rerender!');
 	return (
 		<section className={styles.leafletContainer}>
 			<MapContainer center={coords} zoom={13} scrollWheelZoom={true}>

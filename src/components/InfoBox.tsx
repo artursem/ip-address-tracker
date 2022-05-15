@@ -9,6 +9,7 @@ const InfoBox = () => {
 
 	const displayInfo = (
 		<>
+			{/* turn these into presentation components */}
 			<section className={styles.section}>
 				<h4 className={styles.title}>ip address</h4>
 				<div className={styles.value}>{ipAddress}</div>
