@@ -7,7 +7,6 @@ import './App.css';
 
 function App() {
 	const { lat, lng } = useAppSelector(selectSearchResult);
-
 	return (
 		<>
 			<Header />

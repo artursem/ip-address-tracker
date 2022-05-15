@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup, useMapEvent } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvent, useMap } from 'react-leaflet';
+import { LatLng } from 'leaflet';
 import { Icon } from 'leaflet';
 import styles from './styles/MapSection.module.css';
 import { Coords } from '../types/apiResponse';
@@ -15,10 +16,8 @@ const blackMarker = new Icon({
 
 const MapSection = ({ coords, popup }: MapSectionProps) => {
 	function SetViewOnLoad() {
-		const map = useMapEvent('click', (e) => {
-			map.setView(e.latlng, map.getZoom());
-		});
-
+		const map = useMap();
+		map.setView(new LatLng(...coords), 12);
 		return null;
 	}
 	return (
@@ -29,9 +28,7 @@ const MapSection = ({ coords, popup }: MapSectionProps) => {
 					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				/>
 				<Marker position={coords} icon={blackMarker}>
-					<Popup>
-						A pretty CSS3 popup. <br /> Easily customizable.
-					</Popup>
+					<Popup></Popup>
 				</Marker>
 				<SetViewOnLoad />
 			</MapContainer>
