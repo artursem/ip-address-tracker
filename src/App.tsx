@@ -6,11 +6,11 @@ import MapSection from './components/MapSection';
 import './App.css';
 
 function App() {
-	const { lat, lng } = useAppSelector(selectSearchResult);
+	const { lat, lng, isp } = useAppSelector(selectSearchResult);
 	return (
 		<>
 			<Header />
-			<MapSection coords={[lat, lng]} />
+			<MapSection coords={[lat, lng]} popup={isp} />
 		</>
 	);
 }

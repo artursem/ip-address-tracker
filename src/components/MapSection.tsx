@@ -28,7 +28,9 @@ const MapSection = ({ coords, popup }: MapSectionProps) => {
 					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				/>
 				<Marker position={coords} icon={blackMarker}>
-					<Popup></Popup>
+					<Popup>
+						<h4>{popup}</h4>
+					</Popup>
 				</Marker>
 				<SetViewOnLoad />
 			</MapContainer>
