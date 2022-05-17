@@ -2,6 +2,7 @@ import { useAppSelector } from '../app/hooks';
 import { selectSearchResult, selectStatus } from '../app/search-slice';
 import { Status } from '../types/status';
 import styles from './styles/InfoBox.module.css';
+import Title from './Title';
 
 const InfoBox = () => {
 	const { ipAddress, location, timezone, isp } = useAppSelector(selectSearchResult);
@@ -11,7 +12,7 @@ const InfoBox = () => {
 		<>
 			{/* turn these into presentation components */}
 			<section className={styles.section}>
-				<h4 className={styles.title}>ip address</h4>
+				<Title>ip address</Title>
 				<div className={styles.value}>{ipAddress}</div>
 			</section>
 			<section className={styles.section}>

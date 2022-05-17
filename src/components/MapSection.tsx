@@ -19,7 +19,7 @@ const MapSection = ({ coords, popup }: MapSectionProps) => {
 		const map = useMap();
 		map.setView(new LatLng(...coords), 12);
 		return null;
-	}
+	} //add animation
 	return (
 		<section className={styles.leafletContainer}>
 			<MapContainer center={coords} zoom={13} scrollWheelZoom={true}>
