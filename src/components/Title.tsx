@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styles from './styles/Title.module.css';
 
 interface TitleProps {

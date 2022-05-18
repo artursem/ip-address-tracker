@@ -3,6 +3,7 @@ import { selectSearchResult, selectStatus } from '../app/search-slice';
 import { Status } from '../types/status';
 import styles from './styles/InfoBox.module.css';
 import Title from './Title';
+import Value from './Value';
 
 const InfoBox = () => {
 	const { ipAddress, location, timezone, isp } = useAppSelector(selectSearchResult);
@@ -13,19 +14,19 @@ const InfoBox = () => {
 			{/* turn these into presentation components */}
 			<section className={styles.section}>
 				<Title>ip address</Title>
-				<div className={styles.value}>{ipAddress}</div>
+				<Value>{ipAddress}</Value>
 			</section>
 			<section className={styles.section}>
-				<h4 className={styles.title}>location</h4>
-				<div className={styles.value}>{location}</div>
+				<Title>location</Title>
+				<Value>{location}</Value>
 			</section>
 			<section className={styles.section}>
-				<h4 className={styles.title}>timezone</h4>
-				<div className={styles.value}>{timezone}</div>
+				<Title>timezone</Title>
+				<Value>{timezone}</Value>
 			</section>
 			<section className={styles.section}>
-				<h4 className={styles.title}>isp</h4>
-				<div className={styles.value}>{isp}</div>
+				<Title>isp</Title>
+				<Value>{isp}</Value>
 			</section>
 		</>
 	);
