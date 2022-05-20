@@ -1,6 +1,7 @@
+import { useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import { LatLng } from 'leaflet';
-import { Icon } from 'leaflet';
+// import { LatLngBoundsExpression } from 'leaflet';
+import { LatLng, Icon } from 'leaflet';
 import styles from './styles/MapSection.module.css';
 import { Coords } from '../types/apiResponse';
 
@@ -15,11 +16,14 @@ const blackMarker = new Icon({
 });
 
 const MapSection = ({ coords, popup }: MapSectionProps) => {
-	function SetViewOnLoad() {
+	function SetViewOnLoad({ animateRef }: any) {
 		const map = useMap();
-		map.setView(new LatLng(...coords), 12);
+		map.setView(new LatLng(...coords), map.getZoom(), {
+			animate: animateRef.current || false,
+		});
 		return null;
-	} //add animation
+	}
+	const animateRef = useRef(false);
 	return (
 		<section className={styles.leafletContainer}>
 			<MapContainer center={coords} zoom={13} scrollWheelZoom={true}>
@@ -32,7 +36,7 @@ const MapSection = ({ coords, popup }: MapSectionProps) => {
 						<h4>{popup}</h4>
 					</Popup>
 				</Marker>
-				<SetViewOnLoad />
+				<SetViewOnLoad animateRef={animateRef} />
 			</MapContainer>
 		</section>
 	);
