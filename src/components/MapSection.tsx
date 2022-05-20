@@ -7,7 +7,8 @@ import { Coords } from '../types/apiResponse';
 
 interface MapSectionProps {
 	coords: Coords;
-	popup?: string;
+	isp: string;
+	location: string;
 }
 
 const blackMarker = new Icon({
@@ -15,7 +16,7 @@ const blackMarker = new Icon({
 	iconSize: [35, 45],
 });
 
-const MapSection = ({ coords, popup }: MapSectionProps) => {
+const MapSection = ({ coords, isp, location }: MapSectionProps) => {
 	function SetViewOnLoad({ animateRef }: any) {
 		const map = useMap();
 		map.setView(new LatLng(...coords), map.getZoom(), {
@@ -33,7 +34,8 @@ const MapSection = ({ coords, popup }: MapSectionProps) => {
 				/>
 				<Marker position={coords} icon={blackMarker}>
 					<Popup>
-						<h4>{popup}</h4>
+						<h4>{isp}</h4>
+						<div>{location}</div>
 					</Popup>
 				</Marker>
 				<SetViewOnLoad animateRef={animateRef} />
